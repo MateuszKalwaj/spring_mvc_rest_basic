@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+//JPA entity created as a basic
 @Data
 @Entity
 public class Customer {

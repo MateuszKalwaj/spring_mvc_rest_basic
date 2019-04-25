@@ -1,8 +1,7 @@
 package pl.mk.restfirst.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import pl.mk.restfirst.domain.Customer;
 import pl.mk.restfirst.services.CustomerService;
 
@@ -23,5 +22,16 @@ public class CustomerController {
     @GetMapping
     List<Customer> getAllCustomers() {
         return  customerService.findAllCustomers();
+    }
+
+    @GetMapping("/{id}")
+    public Customer getCustomerById (@PathVariable Long id) {
+        return customerService.findCustomerById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Customer saveCustomer(@RequestBody Customer customer) { //without @RequestBody object would be empty
+        return customerService.saveCustomer(customer);
     }
 }
