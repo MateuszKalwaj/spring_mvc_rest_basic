@@ -1,10 +1,12 @@
 package pl.mk.restfirst.services;
 
+import org.springframework.stereotype.Service;
 import pl.mk.restfirst.domain.Customer;
 import pl.mk.restfirst.repositories.CustomerRepository;
 
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
